@@ -21,7 +21,7 @@ import 'themes.dart';
 
 /// 全局应用状态
 class AppState extends ChangeNotifier {
-  AppLanguage _language = AppLanguage.zh;   // 当前语言
+  AppLanguage _language = AppLanguage.ko;   // 默认韩语
   AppThemeMode _themeMode = AppThemeMode.chinaRed; // 当前主题
 
   AppLanguage get language => _language;
