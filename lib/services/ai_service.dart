@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'api_config.dart';
 
 /// DeepSeek AI 服务 — 调用 DeepSeek Chat API 生成旅行行程
 class AiService {
   static const _baseUrl = 'https://api.deepseek.com';
-  static const _apiKey = 'sk-43306113ac934c809c0515f8bbaef8a7';
+  static String get _apiKey => ApiConfig.deepseekKey;
   static const _model = 'deepseek-chat';
 
   /// 根据偏好生成北京旅行行程
