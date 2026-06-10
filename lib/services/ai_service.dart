@@ -23,16 +23,31 @@ class AiService {
   static String get _apiKey => ApiConfig.deepseekKey;  // 从本地配置文件读取
   static const _model = 'deepseek-chat';
 
+  /// 检查 Key 是否已配置
+  static bool get isConfigured =>
+      _apiKey.isNotEmpty && _apiKey != 'YOUR_DEEPSEEK_API_KEY_HERE';
+
   /// 根据用户偏好生成北京旅行行程
-  /// [days] 旅行天数 (1-5)
-  /// [interests] 用户选中的兴趣标签列表
-  /// [language] 'zh' 中文 / 'ko' 韩文
-  /// 返回：格式化的行程文本，用 【Day N】 分隔每天内容
   static Future<String> generateItinerary({
     required int days,
     required List<String> interests,
     required String language,
   }) async {
+    /// 未配置 Key 时返回友好提示，不影响 App 其他功能
+    if (!isConfigured) {
+      return language == 'ko'
+          ? '⚠️ DeepSeek API Key가 설정되지 않았습니다.\n\n'
+              'lib/services/api_config.dart 파일을 열고\n'
+              'YOUR_DEEPSEEK_API_KEY_HERE 를 실제 Key로 교체해주세요.\n\n'
+              '🔑 Key 발급: https://platform.deepseek.com/api_keys\n'
+              '(신규 가입 시 무료 크레딧 제공)'
+          : '⚠️ 尚未配置 DeepSeek API Key。\n\n'
+              '请打开 lib/services/api_config.dart 文件，\n'
+              '将 YOUR_DEEPSEEK_API_KEY_HERE 替换为你的真实 Key。\n\n'
+              '🔑 获取 Key：https://platform.deepseek.com/api_keys\n'
+              '（新用户注册即送免费额度）';
+    }
+
     final langName = language == 'ko' ? '韩语' : '中文';
     final interestText = interests.join('、');
 
