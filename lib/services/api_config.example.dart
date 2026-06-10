@@ -1,13 +1,11 @@
 /// DeepSeek API 配置模板
 ///
-/// 使用方法：
-///   1. 获取你的 API Key：https://platform.deepseek.com/api_keys
-///   2. 将 YOUR_DEEPSEEK_API_KEY_HERE 替换为你的真实 Key
-///   3. 保存文件即可
+/// 运行时通过编译参数注入 Key，不写入代码：
+///   flutter run --dart-define=DEEPSEEK_KEY=你的真实Key
 ///
-/// 安全提示：
-///   git update-index --skip-worktree lib/services/api_config.dart
-///
+/// Key 获取：https://platform.deepseek.com/api_keys
+/// 新用户注册即送免费额度
 class ApiConfig {
-  static const String deepseekKey = 'YOUR_DEEPSEEK_API_KEY_HERE';
+  static String get deepseekKey =>
+      const String.fromEnvironment('DEEPSEEK_KEY', defaultValue: '');
 }

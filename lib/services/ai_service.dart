@@ -24,8 +24,7 @@ class AiService {
   static const _model = 'deepseek-chat';
 
   /// 检查 Key 是否已配置
-  static bool get isConfigured =>
-      _apiKey.isNotEmpty && _apiKey != 'YOUR_DEEPSEEK_API_KEY_HERE';
+  static bool get isConfigured => _apiKey.isNotEmpty;
 
   /// 根据用户偏好生成北京旅行行程
   static Future<String> generateItinerary({
@@ -37,13 +36,13 @@ class AiService {
     if (!isConfigured) {
       return language == 'ko'
           ? '⚠️ DeepSeek API Key가 설정되지 않았습니다.\n\n'
-              'lib/services/api_config.dart 파일을 열고\n'
-              'YOUR_DEEPSEEK_API_KEY_HERE 를 실제 Key로 교체해주세요.\n\n'
+              '실행 시 --dart-define 으로 Key를 전달해주세요:\n'
+              'flutter run --dart-define=DEEPSEEK_KEY=sk-xxxx\n\n'
               '🔑 Key 발급: https://platform.deepseek.com/api_keys\n'
               '(신규 가입 시 무료 크레딧 제공)'
           : '⚠️ 尚未配置 DeepSeek API Key。\n\n'
-              '请打开 lib/services/api_config.dart 文件，\n'
-              '将 YOUR_DEEPSEEK_API_KEY_HERE 替换为你的真实 Key。\n\n'
+              '请使用以下命令运行以传入 Key：\n'
+              'flutter run --dart-define=DEEPSEEK_KEY=sk-xxxx\n\n'
               '🔑 获取 Key：https://platform.deepseek.com/api_keys\n'
               '（新用户注册即送免费额度）';
     }

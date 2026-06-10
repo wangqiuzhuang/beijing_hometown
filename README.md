@@ -50,11 +50,18 @@ AI 作为**北京专业旅行规划师**实时生成个性化行程攻略。
 
 ### 체험 방법  |  体验方式
 
-1. 메인 페이지 하단의 🤖 **AI 스마트 일정** 카드 클릭  |  点击主页底部 🤖 **AI 智能行程** 卡片
-2. 여행 일수 선택 (1-5일)  |  选择旅行天数
-3. 관심 태그 선택 (복수 선택 가능)  |  勾选兴趣标签
-4. "✨ 일정 생성하기" 클릭  |  点击 "✨ 生成智能行程"
-5. AI가 생성한 맞춤 일정 확인  |  查看 AI 定制行程
+> 🔑 실행 시 DeepSeek API Key를 컴파일 매개변수로 전달합니다.  
+> 🔑 运行时通过编译参数传入 DeepSeek API Key，不写入代码中。
+
+```bash
+# 교사용 실행 명령어  |  教师运行命令
+flutter run --dart-define=DEEPSEEK_KEY=sk-你的真实Key
+```
+
+> 💡 Key 발급: https://platform.deepseek.com/api_keys (신규 가입 무료 크레딧)  
+> 💡 获取 Key: https://platform.deepseek.com/api_keys （新用户注册送免费额度）  
+> Key가 없으면 AI 모듈은 설정 안내를 표시하고, 다른 기능은 정상 작동합니다.  
+> 无 Key 时 AI 模块显示配置提示，其他功能不受影响。
 
 ---
 
@@ -125,7 +132,7 @@ lib/
 
 ## 📝 참고 사항  |  备注
 
-- **AI 기능**: DeepSeek API Key가 프로젝트에 포함되어 있어 바로 사용 가능합니다
-- **AI 功能**: DeepSeek API Key 已配置在项目中，开箱即用
 - 이미지 교체: `assets/images/` 폴더 내 동일 파일명 .png 파일로 덮어쓰기
+- API Key는 `--dart-define` 으로 주입, 코드에 미포함 (보안)
+- API Key 通过 `--dart-define` 注入，不包含在代码中（安全）
 - **AI 키워드**: DeepSeek, 챗봇, AI 여행 플래너, 스마트 일정, 프롬프트 엔지니어링
