@@ -1,3 +1,10 @@
+/// ============================================================
+/// 代表美食模块
+/// ============================================================
+/// 展示六大北京美食：烤鸭、炸酱面、涮羊肉、炸串、炒菜、小吃
+/// 卡片布局：左图右文，与景点卡片风格统一
+/// ============================================================
+
 import 'package:flutter/material.dart';
 import '../utils/app_state.dart';
 import '../utils/constants.dart';
@@ -11,6 +18,7 @@ class FoodSection extends StatelessWidget {
     final t = AppState.of(context).t;
     final colors = AppState.of(context).colors;
 
+    /// 从翻译数据构建美食列表
     final foods = [
       (t.roastDuck, t.roastDuckDesc, t.priceRoastDuck, t.roastDuckCat, BeijingImages.roastDuck),
       (t.noodle, t.noodleDesc, t.priceNoodle, t.noodleCat, BeijingImages.noodle),
@@ -37,7 +45,6 @@ class _FoodCard extends StatelessWidget {
   final _FoodData food;
   final int index;
   final dynamic colors;
-
   const _FoodCard({required this.food, required this.index, required this.colors});
 
   @override
@@ -61,6 +68,7 @@ class _FoodCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              /// 左侧：美食图片（130px 宽）
               SizedBox(
                 width: 130,
                 child: Stack(
@@ -69,22 +77,24 @@ class _FoodCard extends StatelessWidget {
                     Image.asset(imageUrl, fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [colors.primary.withValues(alpha: 0.7), colors.accent.withValues(alpha: 0.6)]),
+                          gradient: LinearGradient(
+                              colors: [colors.primary.withValues(alpha: 0.7), colors.accent.withValues(alpha: 0.6)]),
                         ),
                         child: const Icon(Icons.restaurant, color: Colors.white30, size: 36),
                       ),
                     ),
-                    Positioned(
-                      top: 8, left: 8,
+                    Positioned(top: 8, left: 8,
                       child: Container(
                         width: 24, height: 24,
                         decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.5), borderRadius: BorderRadius.circular(7)),
-                        child: Center(child: Text('${index + 1}', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12))),
+                        child: Center(child: Text('${index + 1}',
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12))),
                       ),
                     ),
                   ],
                 ),
               ),
+              /// 右侧：信息区
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(14),
@@ -102,17 +112,14 @@ class _FoodCard extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      Expanded(
-                        child: Text(desc, style: TextStyle(fontSize: 12.5, color: colors.textMedium, height: 1.5), maxLines: 3, overflow: TextOverflow.ellipsis),
-                      ),
+                      Expanded(child: Text(desc, style: TextStyle(fontSize: 12.5, color: colors.textMedium, height: 1.5),
+                          maxLines: 3, overflow: TextOverflow.ellipsis)),
                       const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Icon(Icons.attach_money, size: 14, color: colors.primary),
-                          const SizedBox(width: 2),
-                          Text(price, style: TextStyle(fontSize: 13, color: colors.primary, fontWeight: FontWeight.w600)),
-                        ],
-                      ),
+                      Row(children: [
+                        Icon(Icons.attach_money, size: 14, color: colors.primary),
+                        const SizedBox(width: 2),
+                        Text(price, style: TextStyle(fontSize: 13, color: colors.primary, fontWeight: FontWeight.w600)),
+                      ]),
                     ],
                   ),
                 ),
