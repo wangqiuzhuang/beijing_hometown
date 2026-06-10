@@ -54,14 +54,16 @@ AI 作为**北京专业旅行规划师**实时生成个性化行程攻略。
 > 🔑 运行时通过编译参数传入 DeepSeek API Key，不写入代码中。
 
 ```bash
-# 교사용 실행 명령어  |  教师运行命令
-flutter run --dart-define=DEEPSEEK_KEY=sk-你的真实Key
+# 실행 명령어  |  运行命令
+flutter run --dart-define=DEEPSEEK_KEY=sk-xxxx
 ```
 
-> 💡 Key 발급: https://platform.deepseek.com/api_keys (신규 가입 무료 크레딧)  
-> 💡 获取 Key: https://platform.deepseek.com/api_keys （新用户注册送免费额度）  
-> Key가 없으면 AI 모듈은 설정 안내를 표시하고, 다른 기능은 정상 작동합니다.  
-> 无 Key 时 AI 模块显示配置提示，其他功能不受影响。
+> 📩 **교사 확인사항**: Key는 코드에 포함되어 있지 않습니다.  
+> 평가 시 학생에게 Key를 요청하거나 https://platform.deepseek.com/api_keys 에서 무료로 발급받으세요.  
+> **Key가 없어도 AI를 제외한 모든 기능은 정상 작동합니다.**  
+>
+> 📩 **教师须知**: Key 未包含在代码中。评分时请联系学生获取，或前往  
+> https://platform.deepseek.com/api_keys 免费注册获取。**无 Key 不影响 AI 以外的所有功能。**
 
 ---
 

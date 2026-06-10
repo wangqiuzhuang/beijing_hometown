@@ -38,13 +38,13 @@ class AiService {
           ? '⚠️ DeepSeek API Key가 설정되지 않았습니다.\n\n'
               '실행 시 --dart-define 으로 Key를 전달해주세요:\n'
               'flutter run --dart-define=DEEPSEEK_KEY=sk-xxxx\n\n'
-              '🔑 Key 발급: https://platform.deepseek.com/api_keys\n'
-              '(신규 가입 시 무료 크레딧 제공)'
+              '📩 담당 학생에게 Key를 요청하거나\n'
+              '🔑 https://platform.deepseek.com/api_keys 에서 직접 발급 가능합니다.'
           : '⚠️ 尚未配置 DeepSeek API Key。\n\n'
               '请使用以下命令运行以传入 Key：\n'
               'flutter run --dart-define=DEEPSEEK_KEY=sk-xxxx\n\n'
-              '🔑 获取 Key：https://platform.deepseek.com/api_keys\n'
-              '（新用户注册即送免费额度）';
+              '📩 请联系学生获取 API Key，或前往\n'
+              '🔑 https://platform.deepseek.com/api_keys 自行注册（免费）';
     }
 
     final langName = language == 'ko' ? '韩语' : '中文';
