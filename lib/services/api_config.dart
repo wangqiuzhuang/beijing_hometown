@@ -10,5 +10,5 @@
 class ApiConfig {
   /// 将此处的占位符替换为你的 DeepSeek API Key
   /// 如果保持占位符不变，AI 功能会提示需要配置 Key，不影响其他功能正常使用
-  static const String deepseekKey = 'YOUR_DEEPSEEK_API_KEY_HERE';
+  static const String deepseekKey = 'sk-43306113ac934c809c0515f8bbaef8a7';
 }
