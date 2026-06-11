@@ -4,23 +4,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
 import 'utils/app_state.dart';
 import 'screens/home_screen.dart';
-
-VideoPlayerController? _heroController;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.light),
   );
-  // 提前加载视频
-  _heroController = VideoPlayerController.asset('assets/videos/beijing.mp4')
-    ..initialize().then((_) {
-      _heroController!.setLooping(true);
-      _heroController!.setVolume(0);
-    });
   runApp(const BeijingApp());
 }
 
@@ -41,7 +32,7 @@ class BeijingApp extends StatelessWidget {
               fontFamily: 'PingFang SC',
               scaffoldBackgroundColor: colors.background,
             ),
-            home: HomeScreen(controller: _heroController),
+            home: const HomeScreen(),
           );
         },
       ),

@@ -15,7 +15,6 @@
 /// ============================================================
 
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import '../utils/app_state.dart';
 import '../utils/translations.dart';
 import '../widgets/hero_section.dart';
@@ -26,8 +25,7 @@ import '../widgets/travel_section.dart';
 import 'ai_planner_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  final VideoPlayerController? controller;
-  const HomeScreen({super.key, this.controller});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -93,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: _scrollController,
             slivers: [
               /// Hero 大图区
-              SliverToBoxAdapter(child: HeroSection(controller: widget.controller)),
+              const SliverToBoxAdapter(child: HeroSection()),
 
               /// 白色内容区（顶部圆角，向上覆盖 Hero 底部）
               SliverToBoxAdapter(
