@@ -27,15 +27,16 @@ class _HeroSectionState extends State<HeroSection> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/videos/beijing.mp4')
-      ..initialize().then((_) {
-        if (mounted) {
-          setState(() {});
-          _controller!.setLooping(true);
-          _controller!.setVolume(0);
-          _controller!.play();
-        }
-      });
+    _controller = VideoPlayerController.asset('assets/videos/beijing.mp4');
+    _controller!.addListener(() {
+      if (_controller!.value.isInitialized && mounted) {
+        _controller!.setLooping(true);
+        _controller!.setVolume(0);
+        _controller!.play();
+        setState(() {});
+      }
+    });
+    _controller!.initialize();
   }
 
   @override
