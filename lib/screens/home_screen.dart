@@ -7,6 +7,7 @@
 ///   - 旅游景点（六大景点，左图右文）
 ///   - 代表美食（六大美食，左图右文）
 ///   - 旅行攻略（六步时间轴 + 三日路线）
+///   - AI 技术应用（三大 AI 功能介绍）
 ///   - AI 智能行程入口卡片
 ///   - 北京欢迎你页脚
 ///
@@ -22,6 +23,7 @@ import '../widgets/area_section.dart';
 import '../widgets/attractions_section.dart';
 import '../widgets/food_section.dart';
 import '../widgets/travel_section.dart';
+import '../widgets/ai_usage_section.dart';
 import 'ai_planner_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'attractions': GlobalKey(),
     'food': GlobalKey(),
     'travel': GlobalKey(),
+    'aiUsage': GlobalKey(),
   };
 
   @override
@@ -123,11 +126,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         /// AI 智能行程入口
                         _buildAiEntryCard(colors),
+                        const SizedBox(height: 36),
+
+                        /// 模块 5：AI 技术应用
+                        KeyedSubtree(key: _sectionKeys['aiUsage'], child: const AiUsageSection()),
                         const SizedBox(height: 24),
 
                         /// 页脚
                         _buildFooter(colors, t),
-                        const SizedBox(height: 120), // 底部留白（导航栏高度）
                       ],
                     ),
                   ),
@@ -218,6 +224,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: t.navFood, onTap: () => _scrollToSection(_sectionKeys['food']!), colors: colors),
             _NavItem(icon: Icons.explore_outlined, activeIcon: Icons.explore,
                 label: t.navTravel, onTap: () => _scrollToSection(_sectionKeys['travel']!), colors: colors),
+            _NavItem(icon: Icons.smart_toy_outlined, activeIcon: Icons.smart_toy,
+                label: t.navAiUsage, onTap: () => _scrollToSection(_sectionKeys['aiUsage']!), colors: colors),
           ]),
         ),
       ),

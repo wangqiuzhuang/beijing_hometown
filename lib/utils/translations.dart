@@ -103,6 +103,24 @@ class TranslationSet {
   final String navAttractions;
   final String navFood;
   final String navTravel;
+  final String navAiUsage;
+
+  // ── AI 技术应用 ──
+  final String aiUsageTitle;
+  final String aiUsageSubtitle;
+  final String aiUsageIntro;
+  final String aiFeature1Title;
+  final String aiFeature1Desc;
+  final String aiFeature1Tech;
+  final String aiFeature2Title;
+  final String aiFeature2Desc;
+  final String aiFeature2Tech;
+  final String aiFeature3Title;
+  final String aiFeature3Desc;
+  final String aiFeature3Tech;
+  final String aiUsageProvider;
+  final String aiUsageModel;
+  final String aiUsageNote;
 
   // ── 景点名 ──
   final String forbiddenCity;
@@ -240,6 +258,22 @@ class TranslationSet {
     required this.navAttractions,
     required this.navFood,
     required this.navTravel,
+    required this.navAiUsage,
+    required this.aiUsageTitle,
+    required this.aiUsageSubtitle,
+    required this.aiUsageIntro,
+    required this.aiFeature1Title,
+    required this.aiFeature1Desc,
+    required this.aiFeature1Tech,
+    required this.aiFeature2Title,
+    required this.aiFeature2Desc,
+    required this.aiFeature2Tech,
+    required this.aiFeature3Title,
+    required this.aiFeature3Desc,
+    required this.aiFeature3Tech,
+    required this.aiUsageProvider,
+    required this.aiUsageModel,
+    required this.aiUsageNote,
     required this.forbiddenCity,
     required this.greatWall,
     required this.templeHeaven,
@@ -419,6 +453,24 @@ const TranslationSet zh = TranslationSet(
   navAttractions: '旅游景点',
   navFood: '代表美食',
   navTravel: '旅行攻略',
+  navAiUsage: 'AI技术',
+
+  // AI 技术应用
+  aiUsageTitle: 'AI技术应用',
+  aiUsageSubtitle: 'AI TECHNOLOGY',
+  aiUsageIntro: '本应用集成了多项AI技术，为您提供更智能、更个性化的北京旅行体验。以下是在项目中应用的AI技术说明。',
+  aiFeature1Title: 'DeepSeek 智能行程规划',
+  aiFeature1Desc: '基于DeepSeek大语言模型，根据您选择的兴趣偏好（历史文化、美食探店、拍照打卡等）和旅行天数，自动生成个性化北京旅行行程攻略，包括每日详细安排、交通提示和预算估算。',
+  aiFeature1Tech: 'DeepSeek Chat API',
+  aiFeature2Title: 'AI 个性化推荐',
+  aiFeature2Desc: '通过自然语言处理技术智能分析您的兴趣标签，精准匹配最适合您的景点、美食和旅行路线，实现千人千面的个性化旅行体验。',
+  aiFeature2Tech: 'NLP 自然语言处理',
+  aiFeature3Title: 'AI 内容生成',
+  aiFeature3Desc: 'AI自动生成结构清晰、实用性强的旅行内容，包括详细的每日行程安排、具体的地铁交通提示和大致的预算估算，让您的旅行规划更加轻松高效。',
+  aiFeature3Tech: 'LLM 文本生成',
+  aiUsageProvider: 'AI服务商',
+  aiUsageModel: '使用模型',
+  aiUsageNote: '说明：AI功能需要配置DeepSeek API Key才能使用。您可以在DeepSeek平台免费注册获取API Key，通过 --dart-define=DEEPSEEK_KEY=sk-xxxx 方式传入。',
 
   // 景点名
   forbiddenCity: '故宫',
@@ -605,6 +657,24 @@ const TranslationSet ko = TranslationSet(
   navAttractions: '관광 명소',
   navFood: '대표 음식',
   navTravel: '여행 가이드',
+  navAiUsage: 'AI 기술',
+
+  // AI 기술 활용
+  aiUsageTitle: 'AI 기술 활용',
+  aiUsageSubtitle: 'AI TECHNOLOGY',
+  aiUsageIntro: '본 앱은 다양한 AI 기술을 통합하여 더욱 스마트하고 개인화된 베이징 여행 경험을 제공합니다. 다음은 프로젝트에 적용된 AI 기술에 대한 설명입니다.',
+  aiFeature1Title: 'DeepSeek AI 여행 플래너',
+  aiFeature1Desc: 'DeepSeek 대형 언어 모델을 기반으로, 선택한 관심사(역사문화, 맛집탐방, 사진명소 등)와 여행 일수에 따라 개인화된 베이징 여행 일정을 자동으로 생성하며, 일별 상세 일정, 교통 팁, 예산 추정을 포함합니다.',
+  aiFeature1Tech: 'DeepSeek Chat API',
+  aiFeature2Title: 'AI 맞춤 추천',
+  aiFeature2Desc: '자연어 처리 기술을 통해 관심 태그를 지능적으로 분석하여, 최적의 관광지, 음식, 여행 경로를 정확하게 매칭하여 개인화된 여행 경험을 제공합니다.',
+  aiFeature2Tech: 'NLP 자연어 처리',
+  aiFeature3Title: 'AI 콘텐츠 생성',
+  aiFeature3Desc: 'AI가 구조화되고 실용적인 여행 콘텐츠를 자동으로 생성합니다. 상세한 일별 일정, 구체적인 지하철 교통 안내, 예산 추정을 포함하여 여행 계획을 더욱 쉽고 효율적으로 만들어 줍니다.',
+  aiFeature3Tech: 'LLM 텍스트 생성',
+  aiUsageProvider: 'AI 서비스 제공업체',
+  aiUsageModel: '사용 모델',
+  aiUsageNote: '안내: AI 기능을 사용하려면 DeepSeek API Key 설정이 필요합니다. DeepSeek 플랫폼에서 무료로 API Key를 발급받아 --dart-define=DEEPSEEK_KEY=sk-xxxx 방식으로 전달할 수 있습니다.',
 
   // 관광지명
   forbiddenCity: '자금성',
